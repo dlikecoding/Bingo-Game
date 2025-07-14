@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+			integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"/>
+		<link rel="stylesheet" href="/css/menu.css" />
+		<link rel="stylesheet" href="/css/index.css" />
+		<title>Login</title>
+	</head>
+	<body>
+		<%- include('partials/menu') %>
+
+		<section id="home" class="hero-section">
+			<h1>Welcome to Bingo!!!</h1>
+			<p>We're excited to have you play with us. Let's see if today is your lucky day. Good luck and have fun!</p>
+			<% if (!locals.session.user) { %>
+				<a href="/register" class="cta-button-rg">Register</a>
+				<a href="/login" class="cta-button-signin">Sign In</a>	
+			<% } %>
+		</section>
+
+		<section id="about" class="about-section">
+			<h2>About Us</h2>
+			<p>
+				This Bingo 2D game project was developed for the CSC 648 Software Development class by Ekarat Buddharuksa, Danish Nguyen, Karl Xavier Arcilla and Mya Phyu using TypeScript, PostgreSQL, HTML, CSS, and Render.
+			</p>
+		</section>
+		<%- include('partials/chat', { session: session, roomId: 'lobby' }) %>
+		<%- include('partials/footer') %>
+	</body>
+</html>
